@@ -1,0 +1,1 @@
+# smarttransit-astana-analytics
