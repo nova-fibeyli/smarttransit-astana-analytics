@@ -41,7 +41,33 @@ then restart PowerShell, activate venv again:
 ```
 python .\scripts\main.py
 ```
-
+```
 setx DATABASE_URL "postgresql+psycopg2://postgres:<YOUR_PASSWORD>@localhost:5432/transitdb"
+```
 # then restart PowerShell, activate venv again:
+
+In my case cose was:
+(
+
+
+1. Load schema
+\i 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/db/init.sql'
+
+2. Import CSV data
+\copy routes       FROM 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/data/routes.csv'       CSV HEADER;
+\copy stops        FROM 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/data/stops.csv'        CSV HEADER;
+\copy buses        FROM 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/data/buses.csv'        CSV HEADER;
+\copy drivers      FROM 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/data/drivers.csv'      CSV HEADER;
+\copy trips        FROM 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/data/trips.csv'        CSV HEADER;
+\copy ticket_sales FROM 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/data/ticket_sales.csv' CSV HEADER;
+\copy stop_events  FROM 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/data/stop_events.csv'  CSV HEADER;
+
+3. Run prepared queries
+\i 'C:/Users/Fanta/Downloads/TransitAnalyticsProject/TransitAnalyticsProject/db/queries.sql'
+
+4. Verify tables
+\dt
+SELECT COUNT(*) FROM routes;
+SELECT COUNT(*) FROM ticket_sales;
+)
 python .\scripts\main.py
