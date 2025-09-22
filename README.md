@@ -1,4 +1,5 @@
 # smarttransit-astana-analytics
+## SmartTransit Astana Analytics is a demo project that takes real-like bus route data, loads it into a database, and runs quick analytics. It shows how routes, buses, drivers, stops, and ticket sales connect together, and gives a simple overview chart of the system. The point is to practice end-to-end data handling — from CSV files -> SQL schema -> queries -> visual output - in a way that feels like a real urban transit company.
 Quick start
 
 1. Create & activate venv
